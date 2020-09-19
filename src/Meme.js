@@ -1,15 +1,20 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import './Meme.css';
 
-function Meme({ id, topText, bottomText, url, deleteMeme }) {
-	const handleDelete = () => deleteMeme(id);
+function Meme({ id, topText, bottomText, url, removeMeme }) {
+	const handleDelete = () => removeMeme(id);
 
 	return (
-		<div>
-			<span>{topText}</span>
-			<img src={url} alt='meme pic' />
-			<span>{bottomText}</span>
-			<button onClick={handleDelete}>Delete</button>
+		<div className='Meme'>
+			<div className='container'>
+				<span className='top-text'>{topText}</span>
+				<img src={url} alt='a meme' />
+				<span className='bottom-text'>{bottomText}</span>
+				<button id='meme_deleteBtn' onClick={handleDelete}>
+					DELETE
+				</button>
+			</div>
 		</div>
 	);
 }

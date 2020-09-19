@@ -11,16 +11,15 @@ function App() {
 	const addMeme = (newMeme) => dispatch({ type: 'ADD_MEME', meme: newMeme });
 	const removeMeme = (id) => dispatch({ type: 'REMOVE_MEME', id });
 
-	const handleMeme = () =>
-		memes.map((meme) => (
-			<Meme
-				key={meme.id}
-				topText={meme.topText}
-				bottomText={meme.bottomText}
-				url={meme.url}
-				removeMeme={() => removeMeme(meme.id)}
-			/>
-		));
+	const handleMeme = memes.map((meme) => (
+		<Meme
+			key={meme.id}
+			topText={meme.topText}
+			bottomText={meme.bottomText}
+			url={meme.url}
+			removeMeme={() => removeMeme(meme.id)}
+		/>
+	));
 
 	return (
 		<div className='App'>
